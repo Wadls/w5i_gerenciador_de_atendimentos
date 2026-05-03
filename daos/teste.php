@@ -18,18 +18,20 @@
 
 // // Fechando a conexão (boa prática após terminar o que precisava)
 // mysqli_close($conn);
-   require_once "connectDAO.php";
+require_once "connectDAO.php";
+global $conn;
+// Montamos o comando SQL informando as duas colunas: nome e tempo
+$sql = "INSERT INTO Prioridades (nome_prioridade, tempo_estimado) VALUES 
+        ('Alta', 4.00), 
+        ('Média', 24.00), 
+        ('Baixa', 72.00)";
 
-$sql = "INSERT INTO Setores (nome_setor) VALUES 
-        ('RH'), 
-        ('Manutenção'), 
-        ('Diretoria')";
-
-// 3. Executamos o comando no banco
+// Executamos o comando no banco
 if (mysqli_query($conn, $sql)) {
-    echo "✅ Sucesso! Os 3 setores foram adicionados ao banco de dados.";
+    echo "✅ Sucesso! As 3 prioridades foram adicionadas ao banco de dados.";
 } else {
-    // Se algo der errado (ex: nome da tabela errado), ele avisa o motivo
+    // Se algo der errado, ele avisa o motivo
     echo "❌ Erro ao adicionar: " . mysqli_error($conn);
 }
+
 ?>

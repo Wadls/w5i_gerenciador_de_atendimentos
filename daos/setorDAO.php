@@ -9,12 +9,13 @@
     foreach ($comando_sql as $key => $value) {
         array_push($setores,$value['nome_setor']);
     }
+    sort($setores);
     
         function listar_setores($lista) {
             foreach($lista as $setor){
-                echo "<option value = $setor>$setor</option>";
+                echo "<option value='$setor'>$setor</option>";
             }
-        } //Você Precisa transferir isso para aba de setores
+        } //Você Precisa Verificar o Retorno do tipo Value desse formulário depois
         function adicionar_setor($novo_setor){
             global $conn, $setores;
             if (in_array($novo_setor,$setores)) {
@@ -26,10 +27,6 @@
                 echo"<div class='alert alert-success' role='alert'>$novo_setor Cadastrado com sucesso!</div>";
             }       
         }
-        function mensagem($texto,$tipo){
-        echo"<div class='alert alert-$tipo' role='alert'>
-             $texto
-             </div>";
-        }
+       
     
     

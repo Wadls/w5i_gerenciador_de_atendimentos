@@ -5,7 +5,7 @@ O objetivo é gerenciar o fluxo de chamados de suporte ou solicitações interna
 Operações esperadas:
 
     Cadastro de Setores (Feito)✅
-    Cadastro de Prioridades (ex: Baixa, Média, Alta) com tempo estimado em horas 
+    Cadastro de Prioridades (ex: Baixa, Média, Alta) com tempo estimado em horas ✅
     Cadastro do Chamado, vinculando ao Setor e à Prioridade (status inicial: "Aberto") 
     Atendimento (Check-in): registrar data e hora de início 
     • Não pode iniciar um chamado já finalizado ou cancelado 
