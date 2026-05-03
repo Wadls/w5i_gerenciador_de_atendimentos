@@ -4,12 +4,47 @@ O objetivo é gerenciar o fluxo de chamados de suporte ou solicitações interna
 
 Operações esperadas:
 
-    Cadastro de Setores
-    Cadastro de Prioridades (ex: Baixa, Média, Alta) com tempo estimado em horas
-    Cadastro do Chamado, vinculando ao Setor e à Prioridade (status inicial: "Aberto")
-    Atendimento (Check-in): registrar data e hora de início
-    • Não pode iniciar um chamado já finalizado ou cancelado
-    Finalização (Check-out): registrar data/hora de término e uma breve solução
-    • Só pode finalizar chamados que foram iniciados
-    Listagem de chamados com Setor, Prioridade, Status atual e Tempo Total de Atendimento
-    Destacar chamados que ultrapassarem o tempo estimado da prioridade
+    Cadastro de Setores✅
+    Cadastro de Prioridades (ex: Baixa, Média, Alta) com tempo estimado em horas ✅
+    Cadastro do Chamado, vinculando ao Setor e à Prioridade (status inicial: "Aberto") ✅
+    Atendimento (Check-in): registrar data e hora de início ✅
+    • Não pode iniciar um chamado já finalizado ou cancelado ✅
+    Finalização (Check-out): registrar data/hora de término e uma breve solução ✅
+    • Só pode finalizar chamados que foram iniciados ✅
+    Listagem de chamados com Setor, Prioridade, Status atual e Tempo Total de Atendimento✅
+    Destacar chamados que ultrapassarem o tempo estimado da prioridade✅
+
+Lógica dos Objetos(Segundo minha interpretação dos Resquisitos):
+    Objeto Chamado {
+        Id
+        Setor
+        Prioridade
+        Tempo estimado
+        Status(Aberto, Inicializado, Finalizado, Cancelado)
+        
+        Function Check-in(data-de-inicio,hora-de-inicio){
+            if (status == Aberto){
+                data-inicial = data-de-inicio
+                hora-inicial = hora-de-inicio
+                checkin = string com data e hora de início
+            }
+            else{
+                alert(String com o status do objeto)
+            }
+        }
+        Function Check-out(data-final,hora-final,solucao){
+            if (status == Inicializado){
+                check-out = string com data e hora de termino
+                solucao = string com a solucao do problema
+                tempo_total = calculo com a variavel data inicial, hora inicial, com os argumentos data-final e hora final
+            }
+            else{
+                alert(String com o status do objeto)
+            }
+            check-out = string com data e hora da finalização
+            solucao = string com a solucao do problema
+        }
+    }
+    
+    Setores = [Setor, Setor, Setor] <--Array de Strings
+    Prioridades = [[Nome,Tempo],[Nome,Tempo],[Nome,Tempo]] <-- Array de Arrays
