@@ -17,9 +17,10 @@
                 <h1 class="display-4 fw-bold">Cadastro de novo setor</h1>
                 <form action="setor_script.php" method="POST">
                     <div class="form-group">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="nome" required>
+                        <label for="novo_setor" class="form-label">Novo setor: </label>
+                        <input type="text" class="form-control" name="novo_setor" required>
                     <div class="form-group">
+                        <br>
                         <button type="submit" class="btn btn-success">Enviar</button>   
                         <a href="cadastro_chamado.php" class="btn btn-primary">Voltar</a>
                     </div>

@@ -8,9 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <?php
-        require_once __DIR__ . '/daos/setorDAO.php';
-        
-        ?>
+        require_once __DIR__ . '/daos/setorDAO.php'; 
+    ?>
         
     <title>Cadastro</title>
   </head>
