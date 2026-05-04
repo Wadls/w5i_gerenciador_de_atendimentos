@@ -2,23 +2,32 @@
     require_once "connectDAO.php";
     global $conn;//Minha IDE Está mostrando erro, toda vez que convoco a conexão de outro arquivo, então vou manter isso aqui
 
-    $sql = "SELECT nome_setor FROM setores";
+    $sql = "SELECT id_setor,nome_setor FROM Setores";
     $comando_sql = mysqli_query($conn, $sql);
     $setores = [];
-    //Esse comando transforma o comando sql, em uma Lista de Nomes do Seto:
-    foreach ($comando_sql as $key => $value) {
-        array_push($setores,$value['nome_setor']);
+    //Esse comando transforma o comando sql, em uma Lista de Nomes e ids dos setores
+    foreach ($comando_sql as $value) {
+        array_push($setores,$value);
     }
-    sort($setores);
+    
     
         function listar_setores($lista) {
             foreach($lista as $setor){
-                echo "<option value='$setor'>$setor</option>";
+                $id = $setor['id_setor'];
+                $nome = $setor['nome_setor'];
+                echo"<option value='$id'>$nome</option>";
             }
         } //Você Precisa Verificar o Retorno do tipo Value desse formulário depois
         function adicionar_setor($novo_setor){
+
             global $conn, $setores;
-            if (in_array($novo_setor,$setores)) {
+            $array_setores = [];
+
+            foreach ($setores as $value) {
+                array_push($array_setores,$value['nome_setor']);
+            }
+
+            if (in_array($novo_setor,$array_setores)) {
                 echo"<div class='alert alert-danger' role='alert'>O setor: <b>$novo_setor</b> já existe, tente de novo</div>";
             }
             else {

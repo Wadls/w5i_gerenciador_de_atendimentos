@@ -17,10 +17,7 @@
                require_once __DIR__ . '/daos/setorDAO.php'; 
               $novo_setor = $_POST['novo_setor'];
               adicionar_setor($novo_setor);
-                  //  echo "<pre>";
-                  //  print_r($GLOBALS);
-                  //  echo "</pre>";
-             
+                
             ?>
             <a href="index.php" class="btn btn-primary">Voltar</a>
         </div>

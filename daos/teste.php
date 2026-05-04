@@ -18,20 +18,24 @@
 
 // // Fechando a conexão (boa prática após terminar o que precisava)
 // mysqli_close($conn);
+
 require_once "connectDAO.php";
 global $conn;
-// Montamos o comando SQL informando as duas colunas: nome e tempo
-$sql = "INSERT INTO Prioridades (nome_prioridade, tempo_estimado) VALUES 
-        ('Alta', 4.00), 
-        ('Média', 24.00), 
-        ('Baixa', 72.00)";
 
-// Executamos o comando no banco
+// O primeiro valor é o id_setor e o segundo é o id_prioridade
+$sql = "INSERT INTO Chamados (id_setor, id_prioridade) VALUES 
+        (1, 1), -- Chamado para o RH (1) com prioridade Alta (1)
+        (2, 2), -- Chamado para Manutenção (2) com prioridade Média (2)
+        (3, 1); -- Chamado para Diretoria (3) com prioridade Alta(1)" ;
+
+// Executamos o comando
 if (mysqli_query($conn, $sql)) {
-    echo "✅ Sucesso! As 3 prioridades foram adicionadas ao banco de dados.";
+    // Como inserimos 3 de uma vez, o mysqli_insert_id vai mostrar o ID do PRIMEIRO deles
+    $primeiro_id = mysqli_insert_id($conn);
+    echo "✅ Sucesso! 3 chamados foram criados.";
+    echo "<br>Eles começaram a partir do ID: " . $primeiro_id;
 } else {
-    // Se algo der errado, ele avisa o motivo
-    echo "❌ Erro ao adicionar: " . mysqli_error($conn);
+    echo "❌ Erro ao criar chamados: " . mysqli_error($conn);
 }
 
 ?>
