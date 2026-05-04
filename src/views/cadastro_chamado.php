@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <?php
-        require_once __DIR__ . '/daos/setorDAO.php'; 
-        require_once __DIR__ . '/daos/prioridadeDAO.php'; 
-        require_once __DIR__ . '/daos/chamadoDAO.php'; 
+        require_once __DIR__ . '/../daos/setorDAO.php'; 
+        require_once __DIR__ . '/../daos/prioridadeDAO.php'; 
+        require_once __DIR__ . '/../daos/chamadoDAO.php'; 
     ?>
         
     <title>Cadastro</title>
@@ -20,7 +20,7 @@
         <div class= "row">
             <div class= "column">
                 <h1 class="display-4 fw-bold">Cadastro de Chamado</h1>
-                <form action="chamado_script.php" method="POST">
+                <form action="../script/chamado_script.php" method="POST">
                     <div class="form-group">
                         <hr>
                         <h3 class=" fw-bold" name="id-chamado">Chamado N°<?php echo ultimo_chamado(); ?></h3>
@@ -49,7 +49,7 @@
                         />
                         <br><br>
                         <button type="submit" class="btn btn-success">Enviar</button>    <!-- class= "btn btn-primary" -->
-                        <a href="index.php" class="btn btn-primary">Voltar</a>
+                        <a href="../../index.php" class="btn btn-primary">Voltar</a>
                     </div>
                 </form>
 

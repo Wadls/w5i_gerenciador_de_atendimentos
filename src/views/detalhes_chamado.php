@@ -1,13 +1,13 @@
 <?php
     // 1. Puxamos a conexão com o banco
-    require_once __DIR__ . '/daos/detalhesDAO.php';
+    require_once __DIR__ . '/../daos/detalhesDAO.php';
 ?>
 <!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <title>Detalhes do Chamado #<?php echo $id_chamado; ?></title>
   </head>
   <body>
@@ -54,7 +54,7 @@
                     </div>
                     
                     <div class="card-footer text-end bg-white">
-                        <a href="index.php" class="btn btn-secondary">Voltar para a Lista</a>
+                        <a href="../../index.php" class="btn btn-secondary">Voltar para a Lista</a>
                     </div>
                 </div>
 

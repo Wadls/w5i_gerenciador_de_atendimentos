@@ -38,4 +38,4 @@ INSERT INTO Chamados (id_setor, id_prioridade, status_chamado, data_checkin, dat
     
     (2, 2, 'Inicializado', '2023-10-27 10:30:00', NULL, NULL), -- Já teve check-in, mas não checkout
     
-    (3, 3, 'Finalizado', '2023-10-26 08:00:00', '2023-10-26 09:15:00', 'Troca de lâmpada e verificação de reator efetuada com sucesso.'); -- Completo
+    (3, 3, 'Finalizado', '2023-10-26 08:00:00', '2023-10-26 09:15:00', 'Troca de programa e verificação de reator efetuada com sucesso.'); -- Completo

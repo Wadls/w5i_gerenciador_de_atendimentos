@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <title>Cadastro de Prioridade</title>
   </head>
@@ -14,7 +14,7 @@
             <div class="col-md-8">
                 <h1 class="display-4 fw-bold">Cadastro de nova prioridade</h1>
                 
-                <form action="prioridade_script.php" method="POST">
+                <form action="../script/prioridade_script.php" method="POST">
                     
                     <div class="form-group mb-3">
                         <label for="nova_prioridade" class="form-label">Nome da Prioridade (ex: Altíssima): </label>

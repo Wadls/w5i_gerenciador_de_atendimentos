@@ -4,7 +4,7 @@
 
     $sql = "SELECT id_prioridade,nome_prioridade, tempo_estimado FROM Prioridades";
     $comando_sql = mysqli_query($conn, $sql);
-    $prioridades = []; //Esse array vai servir para lógicas de programação com nomes
+    $prioridades = []; //Esse array vai servir para lógicas de programação com uma lista dos nomes das prioridades
     $prioridades_Tempo_ID = []; //Esse array vai servir para colocar no formulário
     
     //Esse comando transforma o comando sql, em uma Lista de Nomes da Prioridade:

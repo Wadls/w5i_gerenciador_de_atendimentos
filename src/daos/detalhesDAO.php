@@ -5,7 +5,7 @@
     //Pegando o ID da URL. O isset verifica se o ID realmente foi passado.
     $id_chamado = isset($_GET['id']) ? $_GET['id'] : 0;
 
-    //Esse comando realiza a busca de TODOS os dados desse chamado específico
+    //Esse comando realiza a busca de TODOS os dados
     $sql = "SELECT c.id_chamado, s.nome_setor, p.nome_prioridade, p.tempo_estimado, 
                    c.status_chamado, c.data_checkin, c.data_checkout, c.solucao
             FROM Chamados c

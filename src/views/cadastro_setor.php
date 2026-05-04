@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <title>Cadastro</title>
   </head>
@@ -15,7 +15,7 @@
         <div class= "row">
             <div class= "column">
                 <h1 class="display-4 fw-bold">Cadastro de novo setor</h1>
-                <form action="setor_script.php" method="POST">
+                <form action="../script/setor_script.php" method="POST">
                     <div class="form-group">
                         <label for="novo_setor" class="form-label">Novo setor: </label>
                         <input type="text" class="form-control" name="novo_setor" required>

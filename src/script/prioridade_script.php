@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <title>Processando Prioridade</title>
   </head>
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <?php
-                   require_once __DIR__ . '/daos/prioridadeDAO.php'; 
+                   require_once __DIR__ . '/../daos/prioridadeDAO.php'; 
                    
                    $nova_prioridade = $_POST['nova_prioridade'];
                    $tempo_estimado = $_POST['tempo_estimado'];
@@ -26,7 +26,7 @@
                 ?>
                 
                 <br>
-                <a href="index.php" class="btn btn-primary mt-3">Voltar</a>
+                <a href="../../index.php" class="btn btn-primary mt-3">Voltar</a>
             </div>
         </div>
     </div>

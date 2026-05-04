@@ -41,7 +41,7 @@
 function listar() {
     global $conn;
 
-    // 1. Fazemos a busca no banco juntando as tabelas para pegar os nomes reais
+    // Busca no banco juntando as tabelas para pegar os nomes reais
     $sql = "SELECT c.id_chamado, s.nome_setor, p.nome_prioridade, p.tempo_estimado, 
                    c.status_chamado, c.data_checkin, c.data_checkout 
             FROM Chamados c
@@ -111,7 +111,7 @@ function listar() {
         //Botão de Cancelamento
         if ($status == "Aberto" || $status == "Inicializado") {
             $botoes .= "<a href='#' class='btn btn-warning btn-sm text-dark' data-bs-toggle='modal' data-bs-target='#modal_confirmar' 
-                        onclick=\"prepararModal($id_chamado, 'cancelar_chamado.php', 'Cancelar Chamado', 'Tem certeza que deseja cancelar o Chamado <b>#$id_chamado</b>?', 'btn-warning')\">Cancelar</a>";
+                        onclick=\"prepararModal($id_chamado, '../script/cancelar_chamado_script.php', 'Cancelar Chamado', 'Tem certeza que deseja cancelar o Chamado <b>#$id_chamado</b>?', 'btn-warning')\">Cancelar</a>";
         }
         //Botão de +Detalhes
         $botoes .=" <a href='detalhes_chamado.php?id=$id_chamado' class='btn btn-primary btn-sm me-1'>+ Detalhes</a>";
@@ -124,7 +124,7 @@ function listar() {
             $prazo_nao_cumprido = "table-secondary";
         }
     
-        // 4. Imprime a linha da tabela (<tr>) com os botões
+        // impressão das linhas da tabela
         echo "
             <tr $prazo_nao_cumprido>
                 <th scope='row'>#$id_chamado</th>
@@ -137,29 +137,6 @@ function listar() {
         ";
     }
 }
-// $modal = echo
-//     <div class="modal fade" id="modal_confirmar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-//         <div class="modal-dialog">
-//             <div class="modal-content">
-//             <div class="modal-header">
-//                 <h5 class="modal-title" id="exampleModalLabel">Confirmação de Exclusão</h5>
-//                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-//             </div>
-//             <div class="modal-body">
-//                 <form action="excluir_script.php" method="POST">
-//                     <p>Deseja realmente excluir? <b id="nome_exclusao">Nome da pessoa</b>?</p>
-                   
-//             </div>
-//             <div class="modal-footer">
-//                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-//                     <input type="hidden" name="id" id="cod_pessoa" value="">
-//                     <input type="hidden" name="nome" id="nome_para_msg_exclusao" value="">
-//                     <input type="submit" class="btn btn-danger" value="Confirmar">
-//                 </form> 
-//             </div>
-//             </div>
-//         </div>
-//     </div>
-    
+
     
 ?>

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <title>Check-in do Chamado</title>
   </head>
   <body>
@@ -17,7 +17,7 @@
                 <h2 class="display-6 fw-bold">Check-in - Chamado #<?php echo $id_chamado; ?></h2>
                 <hr>
                 
-                <form action="check-in_script.php" method="POST">
+                <form action="../script/check-in_script.php" method="POST">
                     <input type="hidden" name="id_chamado" value="<?php echo $id_chamado; ?>">
                     
                     <div class="form-group mb-4">
@@ -26,7 +26,7 @@
                     </div>
                     
                     <button type="submit" class="btn btn-success">Confirmar Check-in</button>
-                    <a href="index.php" class="btn btn-secondary">Voltar</a>
+                    <a href="../../index.php" class="btn btn-secondary">Voltar</a>
                 </form>
 
             </div>

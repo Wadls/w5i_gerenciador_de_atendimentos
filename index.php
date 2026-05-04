@@ -20,8 +20,8 @@
                         <p class="col-md-8 fs-4">Esse projeto têm como objetivo, gerenciar o fluxo de chamados de suporte ou solicitações internas, sem o uso de javascript, apenas <b>Hmtl, Php,Bootsrap e Mysql</b></p>
                         <hr class="my-4">
                         <p>Acesse as funções</p>
-                        <a href="cadastro_chamado.php"f class="btn btn-primary btn-lg" type="button">Criar Chamado<a>
-                        <a href="pesquisa.php"f class="btn btn-primary btn-lg" type="button">Pesquisa<a>
+                        <a href="src/views/cadastro_chamado.php" class="btn btn-primary btn-lg" type="button">Criar Chamado</a>
+                        <a href="src/views/lista.php" class="btn btn-primary btn-lg" type="button">Pesquisa</a>
                         
                     </div>
                 </div>
