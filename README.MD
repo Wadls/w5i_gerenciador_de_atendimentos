@@ -54,3 +54,5 @@ Um sistema web para gerenciar o fluxo de chamados de suporte e solicitações in
 1. Faça o clone do repositório para a pasta pública do seu servidor local (ex: `htdocs` no XAMPP ou `www` no WAMP):
    ```bash
    git clone [https://github.com/Wadls/w5i_gerenciador_de_atendimentos.git](https://github.com/Wadls/w5i_gerenciador_de_atendimentos.git)
+2. execute o código de criação do BD Cod_Criar_BD.sql
+3. As configurações de conexão ao banco estão dentro da pasta daos, connectDAO.php
