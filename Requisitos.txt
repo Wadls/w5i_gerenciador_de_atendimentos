@@ -11,8 +11,8 @@ Operações esperadas:
     • Não pode iniciar um chamado já finalizado ou cancelado ✅
     Finalização (Check-out): registrar data/hora de término e uma breve solução ✅
     • Só pode finalizar chamados que foram iniciados ✅
-    Listagem de chamados com Setor, Prioridade, Status atual e Tempo Total de Atendimento
-    Destacar chamados que ultrapassarem o tempo estimado da prioridade
+    Listagem de chamados com Setor, Prioridade, Status atual e Tempo Total de Atendimento ✅
+    Destacar chamados que ultrapassarem o tempo estimado da prioridade ✅
 
 Lógica dos Objetos(Segundo minha interpretação dos Resquisitos):
     Objeto Chamado {

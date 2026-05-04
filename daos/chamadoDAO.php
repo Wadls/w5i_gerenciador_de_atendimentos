@@ -1,9 +1,9 @@
 <?php 
     require_once "connectDAO.php";
-    global $conn; // Mantendo o seu padrão
+    global $conn;
 
-    // 1. Buscando os Chamados
-    // Usamos INNER JOIN para cruzar os dados. Em vez de ver "id_setor = 1", o PHP vai trazer "RH"
+    // uscando os Chamados
+    // Usamos INNER JOIN para cruzar todos dados"
     $sql = "SELECT c.id_chamado, s.nome_setor, p.nome_prioridade, p.tempo_estimado 
             FROM Chamados c
             INNER JOIN Setores s ON c.id_setor = s.id_setor
@@ -57,7 +57,7 @@ function listar() {
         return;
     }
 
-    // 3. O seu laço de repetição (While) adaptado
+    // Função que preenche a tabela de forma dinâmiva
     while ($linha = mysqli_fetch_assoc($dados)) {
         
         $id_chamado = $linha['id_chamado'];
@@ -65,11 +65,38 @@ function listar() {
         // Juntamos o nome da prioridade com o tempo na mesma variável para economizar espaço na tela
         $prioridade = $linha['nome_prioridade'] . " (" . $linha['tempo_estimado'] . "h)"; 
         $status = $linha['status_chamado'];
+
+        //Reset da variável null, pra parar de dar problema
+        $horas = null;
         
         // Formatação de Datas: Se a data dentro do banco for NULL no banco, então mostro um traço "-". 
         // Se tiver data, prefiro o modelo padrão Brasileiro (Dia/Mês/Ano Hora:Minuto)
         $checkin = $linha['data_checkin'] ? date('d/m/Y H:i', strtotime($linha['data_checkin'])) : '-';
         $checkout = $linha['data_checkout'] ? date('d/m/Y H:i', strtotime($linha['data_checkout'])) : '-';
+        $tempo_total = 0;
+        //Salva-guarda, para garantir que o tempo só será contabilizado se existir data de check-in e check-out registrados
+        if ($linha['data_checkin'] && $linha['data_checkout']) {
+            
+            // Converte as datas originais do banco para segundos (Unix Timestamp)
+            $segundos_iniciais = strtotime($linha['data_checkin']);
+            $segundos_finais = strtotime($linha['data_checkout']);
+            
+            // Subtrai um do outro para achar a diferença total em segundos
+            $diferenca_segundos = $segundos_finais - $segundos_iniciais;
+            
+            // Converte os segundos em horas (1 hora = 3600 segundos)
+            $horas = $diferenca_segundos / 3600;
+            
+            
+            $h = floor($diferenca_segundos / 3600);
+            
+            // Pega o "resto" da divisão e transforma em minutos
+            $m = floor(($diferenca_segundos % 3600) / 60);
+            
+            $tempo_total = "{$h}h {$m}m";
+        }
+
+        
        $botoes = "";
         //Botão de check-in
         if ($status == "Aberto") {
@@ -88,16 +115,23 @@ function listar() {
         }
         //Botão de +Detalhes
         $botoes .=" <a href='detalhes_chamado.php?id=$id_chamado' class='btn btn-primary btn-sm me-1'>+ Detalhes</a>";
-
+        
+        //Essa função compara o tempo estimado com o tempo e que a tarefa foi cumprida, em caso de prazo estourado a linha fica vermelha
+        if (isset($horas) && $horas > $linha['tempo_estimado']) {
+        $prazo_nao_cumprido ="class='table-danger'";
+        }
+        else {
+            $prazo_nao_cumprido = "table-secondary";
+        }
+    
         // 4. Imprime a linha da tabela (<tr>) com os botões
         echo "
-            <tr>
+            <tr $prazo_nao_cumprido>
                 <th scope='row'>#$id_chamado</th>
                 <td>$setor</td>
                 <td>$prioridade</td>
                 <td>$status</td>
-                <td>$checkin</td>
-                <td>$checkout</td>
+                <td>$tempo_total</td>
                 <td>$botoes</td>
             </tr>
         ";

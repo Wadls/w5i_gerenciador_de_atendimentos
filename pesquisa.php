@@ -42,7 +42,6 @@
                     <th scope="col">Prioridade</th>
                     <th scope="col">Status</th>
                     <th scope="col">Tempo total</th>
-                    <th scope="col">Check-out</th>
                     <th scope="col">Funções</th>
                     
                     
