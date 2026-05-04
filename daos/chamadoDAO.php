@@ -71,21 +71,23 @@ function listar() {
         $checkin = $linha['data_checkin'] ? date('d/m/Y H:i', strtotime($linha['data_checkin'])) : '-';
         $checkout = $linha['data_checkout'] ? date('d/m/Y H:i', strtotime($linha['data_checkout'])) : '-';
        $botoes = "";
-
+        //Botão de check-in
         if ($status == "Aberto") {
             $botoes .= "<a href='#' class='btn btn-success btn-sm me-1' data-bs-toggle='modal' data-bs-target='#modal_confirmar' 
                         onclick=\"prepararModal($id_chamado, 'check-in_chamado.php', 'Confirmar Check-in', 'Deseja realmente iniciar o atendimento do Chamado <b>#$id_chamado</b>?', 'btn-success')\">Check-in</a>";
         }
-
+        //Botão de check-out
         if ($status == "Inicializado") {
             $botoes .= "<a href='#' class='btn btn-danger btn-sm me-1' data-bs-toggle='modal' data-bs-target='#modal_confirmar' 
                         onclick=\"prepararModal($id_chamado, 'check-out_chamado.php', 'Confirmar Check-out', 'Deseja realmente finalizar o Chamado <b>#$id_chamado</b>?', 'btn-danger')\">Check-out</a>";
         }
-
+        //Botão de Cancelamento
         if ($status == "Aberto" || $status == "Inicializado") {
             $botoes .= "<a href='#' class='btn btn-warning btn-sm text-dark' data-bs-toggle='modal' data-bs-target='#modal_confirmar' 
                         onclick=\"prepararModal($id_chamado, 'cancelar_chamado.php', 'Cancelar Chamado', 'Tem certeza que deseja cancelar o Chamado <b>#$id_chamado</b>?', 'btn-warning')\">Cancelar</a>";
         }
+        //Botão de +Detalhes
+        $botoes .=" <a href='detalhes_chamado.php?id=$id_chamado' class='btn btn-primary btn-sm me-1'>+ Detalhes</a>";
 
         // 4. Imprime a linha da tabela (<tr>) com os botões
         echo "

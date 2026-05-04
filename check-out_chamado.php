@@ -20,9 +20,14 @@
                 <form action="check-out_script.php" method="POST">
                     <input type="hidden" name="id_chamado" value="<?php echo $id_chamado; ?>">
                     
-                    <div class="form-group mb-4">
-                        <label for="data_checkout" class="form-label">Data e Hora de Início:</label>
+                    <div class="form-group mb-3">
+                        <label for="data_checkout" class="form-label">Data e Hora de Término:</label>
                         <input type="datetime-local" class="form-control" name="data_checkout" id="data_checkout" required>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="solucao" class="form-label">Descrição da Solução:</label>
+                        <textarea class="form-control" name="solucao" id="solucao" rows="4" placeholder="Descreva detalhadamente o que foi feito para resolver o problema..." required></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-success">Confirmar Check-out</button>

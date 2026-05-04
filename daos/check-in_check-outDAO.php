@@ -12,11 +12,12 @@
         mysqli_query($conn, $sql);
 
     }
-    function checkout($data_formatada,$id_chamado){
+    function checkout($id_chamado,$data_formatada,$solucao){
         global $conn;
         $sql = "UPDATE Chamados 
         SET status_chamado = 'Finalizado', 
-            data_checkout = '$data_formatada' 
+            data_checkout = '$data_formatada',
+            solucao = '$solucao'
         WHERE id_chamado = $id_chamado";
 
 
