@@ -2,7 +2,7 @@
     require_once "connectDAO.php";
     global $conn;
 
-    // uscando os Chamados
+    // Buscando os Chamados
     // Usamos INNER JOIN para cruzar todos dados"
     $sql = "SELECT c.id_chamado, s.nome_setor, p.nome_prioridade, p.tempo_estimado 
             FROM Chamados c
